@@ -9,6 +9,7 @@ import {
   FaFileDownload,
   FaTimes,
 } from "react-icons/fa";
+import { MdContactPhone } from "react-icons/md";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
@@ -33,15 +34,13 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
-  const navItems = [
+ const navItems = [
     { to: "/", icon: <FaHome />, text: "Home" },
     { to: "/about", icon: <FaUser />, text: "About" },
     { to: "/skills", icon: <FaCode />, text: "Skills" },
     { to: "/projects", icon: <FaProjectDiagram />, text: "Projects" },
     { to: "/services", icon: <FaServer />, text: "Services" },
   ];
-
   return (
     <>
       <nav
