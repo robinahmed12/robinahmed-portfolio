@@ -1,2 +1,22 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Light mode (default) */
+:root {
+  --text-color: #1E293B;
+  --bg-color: #FFFFFF;
+  /* other light mode variables */
+}
+
+/* Dark mode */
+.dark {
+  --text-color: #F8FAFC;
+  --bg-color: #0F172A;
+  /* other dark mode variables */
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -13,34 +13,48 @@ import { MdContactPhone } from "react-icons/md";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  // Initialize darkMode from localStorage or default to true
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : true;
+  });
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Apply dark mode class to HTML element on initial render and when darkMode changes
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    // Save preference to localStorage
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    // You might want to add logic to persist this preference
-    document.documentElement.classList.toggle("dark");
   };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
- const navItems = [
+
+  const navItems = [
     { to: "/", icon: <FaHome />, text: "Home" },
     { to: "/about", icon: <FaUser />, text: "About" },
     { to: "/skills", icon: <FaCode />, text: "Skills" },
     { to: "/projects", icon: <FaProjectDiagram />, text: "Projects" },
     { to: "/services", icon: <FaServer />, text: "Services" },
+    { to: "/contact", icon: <MdContactPhone />, text: "Contact" },
   ];
+
   return (
     <>
       <nav
