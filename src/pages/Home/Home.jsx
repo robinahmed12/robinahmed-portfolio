@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../../Sections/Banner/Banner';
 import About from '../../Sections/About/About';
 import Skills from '../../Sections/Skills/Skills';
@@ -7,6 +7,10 @@ import Services from '../../Sections/Services/Services';
 import Contact from '../../Sections/Contact/Contact';
 
 const Home = () => {
+    
+     useEffect(() => {
+      document.title = "Home";
+    })
     return (
         <>
         <Banner/>

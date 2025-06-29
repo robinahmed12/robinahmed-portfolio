@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../../components/Container/Container";
 import { motion } from "framer-motion";
 
@@ -152,6 +152,10 @@ const Services = () => {
       },
     },
   };
+
+   useEffect(() => {
+      document.title = "Services";
+    })
 
   return (
     <section data-aos="flip-left"

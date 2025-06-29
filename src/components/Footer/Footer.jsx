@@ -28,12 +28,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer
-      data-aos="fade-up"
-      data-aos-duration="3000"
-      className="bg-[#1E293B] text-[#F8FAFC] py-8"
-    >
-      <div className="flex max-w-7xl mx-auto flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-[#1E293B] text-[#F8FAFC] py-8">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="flex max-w-7xl mx-auto flex-col md:flex-row justify-between items-center gap-8"
+      >
         {/* Portfolio Info */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold mb-2">Robin Ahmed</h2>

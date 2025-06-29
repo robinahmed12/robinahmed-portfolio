@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../../components/Container/Container";
 import { motion } from "framer-motion";
 
@@ -58,6 +58,10 @@ const Projects = () => {
     },
   };
 
+   useEffect(() => {
+      document.title = "Projects";
+    })
+
   return (
     <section id="projects" className="py-20 bg-white">
       <Container>
@@ -93,7 +97,7 @@ const Projects = () => {
               } gap-12 items-center`}
             >
               {/* Content */}
-              <div data-aos="fade-right"
+              <div
                 className={`lg:w-1/2 ${
                   index % 2 === 0 ? "lg:pr-12" : "lg:pl-12"
                 }`}
@@ -136,7 +140,7 @@ const Projects = () => {
               </div>
 
               {/* Image Gallery */}
-              <div data-aos="fade-left" className="lg:w-1/2 relative h-55  lg:h-70 w-full">
+              <div  className="lg:w-1/2 relative h-55  lg:h-70 w-full">
                 {project.images.map((img, imgIndex) => (
                   <motion.div
                     key={imgIndex}

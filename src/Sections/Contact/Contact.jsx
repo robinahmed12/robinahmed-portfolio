@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../components/Container/Container";
 import {
   FaPhone,
@@ -33,6 +33,9 @@ const Contact = () => {
       message: "",
     });
   };
+   useEffect(() => {
+      document.title = "Contact";
+    })
 
   return (
     <section id="contact" className="py-12 bg-white">
@@ -41,9 +44,10 @@ const Contact = () => {
           Get In <span className="text-[#DC2626]">Touch</span>
         </h2>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div data-aos="fade-up"
+        data-aos-duration="3000" className="flex flex-col lg:flex-row gap-8">
           {/* Left Side - Contact Info */}
-          <div data-aos="zoom-out-right" className="w-full lg:w-1/2 space-y-6">
+          <div className="w-full lg:w-1/2 space-y-6">
             <div className="bg-[#F8FAFC] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-[#DC2626]">
               <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
                 Contact Information
@@ -122,7 +126,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div data-aos="zoom-out-left" className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <form
               onSubmit={handleSubmit}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[#DC2626]"

@@ -29,6 +29,10 @@ const About = () => {
     { name: "MongoDB", icon: "🗄️" },
   ];
 
+   useEffect(() => {
+      document.title = "About";
+    })
+
   return (
     <section className="py-12 lg:py-16 bg-white">
       <Container>
