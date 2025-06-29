@@ -153,14 +153,18 @@ const Services = () => {
     },
   };
 
-   useEffect(() => {
-      document.title = "Services";
-    })
+  useEffect(() => {
+    document.title = "Services";
+  });
 
   return (
-    <section data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000" className="py-16 bg-white" id="services">
+    <section 
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000" 
+      className="py-16 bg-white dark:bg-slate-900 transition-colors duration-300"
+      id="services"
+    >
       <Container>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -168,11 +172,11 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-4">
             My Services
           </h2>
-          <div className="w-20 h-1 bg-[#DC2626] mx-auto mb-6"></div>
-          <p className="text-[#1E293B] max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+          <p className="text-slate-800 dark:text-gray-50 max-w-2xl mx-auto">
             I offer comprehensive web development services to bring your digital
             ideas to life with clean code and modern design.
           </p>
@@ -190,17 +194,17 @@ const Services = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-lg shadow-lg border border-[#FECACA] hover:shadow-xl transition-all duration-300 group"
+              className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg border border-pink-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group"
             >
-              <div className="text-[#DC2626] mb-4 group-hover:text-[#1E293B] transition-colors duration-300">
+              <div className="text-red-600 dark:text-red-500 mb-4 group-hover:text-slate-800 dark:group-hover:text-gray-50 transition-colors duration-300">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#1E293B] mb-3">
+              <h3 className="text-xl font-bold text-slate-800 dark:text-gray-50 mb-3">
                 {service.title}
               </h3>
-              <p className="text-[#1E293B]">{service.description}</p>
+              <p className="text-slate-800 dark:text-gray-300">{service.description}</p>
               <div className="mt-6">
-                <button className="px-4 py-2 bg-[#1E293B] text-white rounded-md hover:bg-[#DC2626] transition-colors duration-300">
+                <button className="px-4 py-2 bg-slate-800 dark:bg-gray-50 text-white dark:text-slate-800 rounded-md hover:bg-red-600 dark:hover:bg-red-500 transition-colors duration-300">
                   Learn More
                 </button>
               </div>

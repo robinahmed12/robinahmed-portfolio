@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import Container from "../../components/Container/Container";
 import { motion } from "framer-motion";
-import img from "../../assets/aiease_1750841588683.jpg"
+import img from "../../assets/aiease_1750841588683.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const About = () => {
-   useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 800,
       once: true,
     });
   }, []);
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -29,12 +30,12 @@ const About = () => {
     { name: "MongoDB", icon: "🗄️" },
   ];
 
-   useEffect(() => {
-      document.title = "About";
-    })
+  useEffect(() => {
+    document.title = "About";
+  });
 
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 transition-colors duration-300">
       <Container>
         <motion.div
           initial="hidden"
@@ -43,9 +44,12 @@ const About = () => {
           className="flex flex-col lg:flex-row gap-12 items-center"
         >
           {/* Left Column - Image */}
-          <div data-aos="fade-right" className="w-full lg:w-1/3 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#DC2626] shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FECACA] to-[#DC2626] opacity-20"></div>
+          <div
+            data-aos="fade-right"
+            className="w-full lg:w-1/3 flex justify-center"
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-red-600 dark:border-red-600 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-red-600 opacity-20 dark:opacity-30"></div>
               <div className="absolute inset-4 rounded-full border-2 border-white opacity-30"></div>
               <img
                 src={img}
@@ -59,14 +63,14 @@ const About = () => {
           <div data-aos="fade-left" className="w-full lg:w-2/3">
             <motion.h2
               variants={fadeIn}
-              className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-6"
+              className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-6"
             >
-              About <span className="text-[#DC2626]">Me</span>
+              About <span className="text-red-600 dark:text-red-600">Me</span>
             </motion.h2>
 
             <motion.p
               variants={fadeIn}
-              className="text-lg text-[#1E293B] mb-6 leading-relaxed"
+              className="text-lg text-slate-800 dark:text-gray-50 mb-6 leading-relaxed"
             >
               I'm Robin Ahmed, a passionate Frontend Developer with strong
               skills in crafting responsive, user-friendly, and visually
@@ -78,7 +82,7 @@ const About = () => {
 
             <motion.p
               variants={fadeIn}
-              className="text-lg text-[#1E293B] mb-8 leading-relaxed"
+              className="text-lg text-slate-800 dark:text-gray-50 mb-8 leading-relaxed"
             >
               My approach focuses on clean UI design, performance optimization,
               and maintainable code. Beyond frontend development, I also have
@@ -88,7 +92,7 @@ const About = () => {
 
             {/* Skills Section */}
             <motion.div variants={fadeIn}>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-50 mb-4">
                 My Skills
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -97,7 +101,7 @@ const About = () => {
                     key={index}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-[#FECACA] text-[#1E293B] rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all"
+                    className="px-4 py-2 bg-pink-100 dark:bg-slate-800 text-slate-800 dark:text-gray-50 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all"
                   >
                     <span>{skill.icon}</span>
                     <span>{skill.name}</span>
@@ -108,9 +112,9 @@ const About = () => {
 
             {/* CTA Button */}
             <motion.div variants={fadeIn} className="mt-10">
-              <Link to={"/projects"}
-                
-                className="inline-block px-8 py-3 bg-[#DC2626] text-white font-medium rounded-lg hover:bg-[#B91C1C] transition-colors duration-300 shadow-md hover:shadow-lg"
+              <Link
+                to="/projects"
+                className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 View My Projects
               </Link>

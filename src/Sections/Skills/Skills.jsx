@@ -30,7 +30,7 @@ const Skills = () => {
     },
     {
       name: "Express.js",
-      icon: <SiExpress className="text-gray-800" />,
+      icon: <SiExpress className="text-gray-800 dark:text-gray-200" />,
       level: 65,
     },
     {
@@ -55,13 +55,16 @@ const Skills = () => {
     show: { opacity: 1, y: 0 },
   };
 
-   useEffect(() => {
-      document.title = "Skills";
-    })
+  useEffect(() => {
+    document.title = "Skills";
+  });
 
   return (
-    <section data-aos="fade-up"
-     data-aos-duration="3000" className="py-12 bg-white">
+    <section
+      data-aos="fade-up"
+      data-aos-duration="3000"
+      className="py-12 bg-white dark:bg-slate-900 transition-colors duration-300"
+    >
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,10 +72,10 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-4">
             Technical Skills
           </h2>
-          <p className="text-lg text-[#1E293B] max-w-2xl mx-auto">
+          <p className="text-lg text-slate-800 dark:text-gray-300 max-w-2xl mx-auto">
             Here are the technologies I work with to create responsive,
             performant, and user-friendly web applications.
           </p>
@@ -89,23 +92,23 @@ const Skills = () => {
               key={index}
               variants={item}
               whileHover={{ y: -5 }}
-              className="bg-[#F8FAFC] p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-[#FECACA]"
+              className="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-pink-100 dark:border-slate-700"
             >
               <div className="flex items-center justify-center text-4xl mb-4">
                 {skill.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#1E293B] text-center mb-2">
+              <h3 className="text-lg font-semibold text-slate-800 dark:text-gray-100 text-center mb-2">
                 {skill.name}
               </h3>
-              <div className="w-full bg-[#FECACA] rounded-full h-2.5">
+              <div className="w-full bg-pink-100 dark:bg-slate-700 rounded-full h-2.5">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${skill.level}%` }}
                   transition={{ duration: 1, delay: index * 0.1 }}
-                  className="h-2.5 rounded-full bg-[#DC2626]"
+                  className="h-2.5 rounded-full bg-red-600"
                 ></motion.div>
               </div>
-              <p className="text-right text-sm text-[#1E293B] mt-1">
+              <p className="text-right text-sm text-slate-800 dark:text-gray-300 mt-1">
                 {skill.level}%
               </p>
             </motion.div>
@@ -116,30 +119,30 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-12 bg-[#FECACA] p-6 rounded-lg"
+          className="mt-12 bg-pink-100 dark:bg-slate-800 p-6 rounded-lg border border-pink-100 dark:border-slate-700"
         >
-          <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
+          <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-100 mb-4">
             Development Approach
           </h3>
-          <ul className="space-y-2 text-[#1E293B]">
+          <ul className="space-y-2 text-slate-800 dark:text-gray-300">
             <li className="flex items-start">
-              <span className="text-[#DC2626] mr-2">•</span>
+              <span className="text-red-600 mr-2">•</span>
               <span>
                 Pixel-perfect, responsive designs with mobile-first approach
               </span>
             </li>
             <li className="flex items-start">
-              <span className="text-[#DC2626] mr-2">•</span>
+              <span className="text-red-600 mr-2">•</span>
               <span>
                 Clean, scalable code with proper component architecture
               </span>
             </li>
             <li className="flex items-start">
-              <span className="text-[#DC2626] mr-2">•</span>
+              <span className="text-red-600 mr-2">•</span>
               <span>Performance-focused implementation</span>
             </li>
             <li className="flex items-start">
-              <span className="text-[#DC2626] mr-2">•</span>
+              <span className="text-red-600 mr-2">•</span>
               <span>Interactive UI with smooth animations</span>
             </li>
           </ul>

@@ -33,36 +33,45 @@ const Contact = () => {
       message: "",
     });
   };
-   useEffect(() => {
-      document.title = "Contact";
-    })
+
+  useEffect(() => {
+    document.title = "Contact";
+  }, []);
 
   return (
-    <section id="contact" className="py-12 bg-white">
+    <section
+      id="contact"
+      className="py-12 bg-white dark:bg-slate-800 transition-colors duration-300"
+    >
       <Container>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-8 text-center">
-          Get In <span className="text-[#DC2626]">Touch</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-8 text-center">
+          Get In <span className="text-red-600 dark:text-red-500">Touch</span>
         </h2>
 
-        <div data-aos="fade-up"
-        data-aos-duration="3000" className="flex flex-col lg:flex-row gap-8">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className="flex flex-col lg:flex-row gap-8"
+        >
           {/* Left Side - Contact Info */}
           <div className="w-full lg:w-1/2 space-y-6">
-            <div className="bg-[#F8FAFC] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-[#DC2626]">
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
+            <div className="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-600 dark:border-red-500">
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-50 mb-4">
                 Contact Information
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 text-[#DC2626]">
+                  <div className="mt-1 text-red-600 dark:text-red-500">
                     <FaPhone className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#1E293B]">Phone</h4>
+                    <h4 className="font-medium text-slate-800 dark:text-gray-50">
+                      Phone
+                    </h4>
                     <a
                       href="01716900294"
-                      className="text-[#64748B] hover:text-[#DC2626] transition-colors"
+                      className="text-slate-500 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
                     >
                       01716900294
                     </a>
@@ -70,16 +79,18 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 text-[#DC2626]">
+                  <div className="mt-1 text-red-600 dark:text-red-500">
                     <FaWhatsapp className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#1E293B]">WhatsApp</h4>
+                    <h4 className="font-medium text-slate-800 dark:text-gray-50">
+                      WhatsApp
+                    </h4>
                     <a
                       href="https://wa.me/1234567890"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#64748B] hover:text-[#DC2626] transition-colors"
+                      className="text-slate-500 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
                     >
                       01716900294
                     </a>
@@ -87,14 +98,16 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 text-[#DC2626]">
+                  <div className="mt-1 text-red-600 dark:text-red-500">
                     <FaEnvelope className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#1E293B]">Email</h4>
+                    <h4 className="font-medium text-slate-800 dark:text-gray-50">
+                      Email
+                    </h4>
                     <a
                       href="mailto:hello@robinahmed.com"
-                      className="text-[#64748B] hover:text-[#DC2626] transition-colors"
+                      className="text-slate-500 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
                     >
                       robinahmed2998@gmail.com
                     </a>
@@ -102,25 +115,28 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 text-[#DC2626]">
+                  <div className="mt-1 text-red-600 dark:text-red-500">
                     <FaMapMarkerAlt className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#1E293B]">Location</h4>
-                    <p className="text-[#64748B]">Cumilla, Bangladesh</p>
+                    <h4 className="font-medium text-slate-800 dark:text-gray-50">
+                      Location
+                    </h4>
+                    <p className="text-slate-500 dark:text-slate-300">
+                      Cumilla, Bangladesh
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#FECACA] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
+            <div className="bg-pink-100 dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-50 mb-4">
                 Availability
               </h3>
-              <p className="text-[#1E293B]">
-                I'm currently available for work and full-time
-                positions. Feel free to reach out for collaborations or just to
-                say hello!
+              <p className="text-slate-800 dark:text-gray-50">
+                I'm currently available for work and full-time positions. Feel
+                free to reach out for collaborations or just to say hello!
               </p>
             </div>
           </div>
@@ -129,9 +145,9 @@ const Contact = () => {
           <div className="w-full lg:w-1/2">
             <form
               onSubmit={handleSubmit}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[#DC2626]"
+              className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-red-600 dark:border-red-500"
             >
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-6">
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-50 mb-6">
                 Send Me a Message
               </h3>
 
@@ -139,7 +155,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-[#1E293B] mb-1"
+                    className="block text-sm font-medium text-slate-800 dark:text-gray-50 mb-1"
                   >
                     Name
                   </label>
@@ -149,7 +165,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-[#E2E8F0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 dark:focus:ring-red-500 focus:border-transparent transition-all bg-white dark:bg-slate-800 text-slate-800 dark:text-gray-50"
                     placeholder="Your name"
                     required
                   />
@@ -158,7 +174,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-[#1E293B] mb-1"
+                    className="block text-sm font-medium text-slate-800 dark:text-gray-50 mb-1"
                   >
                     Email
                   </label>
@@ -168,7 +184,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-[#E2E8F0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 dark:focus:ring-red-500 focus:border-transparent transition-all bg-white dark:bg-slate-800 text-slate-800 dark:text-gray-50"
                     placeholder="Your email"
                     required
                   />
@@ -177,7 +193,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-[#1E293B] mb-1"
+                    className="block text-sm font-medium text-slate-800 dark:text-gray-50 mb-1"
                   >
                     Message
                   </label>
@@ -187,7 +203,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-2 border border-[#E2E8F0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 dark:focus:ring-red-500 focus:border-transparent transition-all bg-white dark:bg-slate-800 text-slate-800 dark:text-gray-50"
                     placeholder="Your message"
                     required
                   ></textarea>
@@ -195,7 +211,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#DC2626] text-white py-3 px-6 rounded-md font-medium hover:bg-[#B91C1C] transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 text-white py-3 px-6 rounded-md font-medium transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Send Message
                 </button>
