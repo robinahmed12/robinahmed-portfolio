@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {
   FaHome,
@@ -16,17 +16,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const navItems = [
     { to: "/", icon: <FaHome />, text: "Home" },
@@ -47,38 +43,34 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
-              <NavLink to="/">
-                <PortfolioLogo />
-              </NavLink>
-            </div>
+            <NavLink to="/" className="flex items-center">
+              <PortfolioLogo />
+            </NavLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-center space-x-2">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
-                    className={({ isActive }) =>
-                      `px-3 py-2 rounded-md text-sm font-medium flex items-center transition-all duration-200
-                      ${
-                        isActive
-                          ? `bg-[#DC2626] text-white`
-                          : `hover:bg-[#FECACA] hover:text-[#1E293B]`
-                      }`
-                    }
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.text}
-                  </NavLink>
-                ))}
-              </div>
+            <div className="hidden md:flex items-center space-x-2">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `px-3 py-2 rounded-md text-sm font-medium flex items-center transition-all duration-200
+                    ${
+                      isActive
+                        ? `bg-[#DC2626] text-white`
+                        : `hover:bg-[#FECACA] hover:text-[#1E293B]`
+                    }`
+                  }
+                >
+                  <span className="mr-2">{item.icon}</span>
+                  {item.text}
+                </NavLink>
+              ))}
             </div>
 
             {/* Right side buttons */}
             <div className="flex items-center space-x-4">
-              {/* Resume button - hidden on mobile */}
+              {/* Resume button (hidden on mobile) */}
               <a
                 href="/resume.pdf"
                 download
@@ -88,33 +80,31 @@ const Navbar = () => {
                 Resume
               </a>
 
-              {/* Mobile menu button */}
-              <div className="md:hidden flex items-center">
-                <button
-                  onClick={toggleMobileMenu}
-                  className="p-2 rounded-md hover:bg-[#FECACA]"
-                  aria-label="Open menu"
-                >
-                  {mobileMenuOpen ? (
-                    <FaTimes size={20} />
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
-                    </svg>
-                  )}
-                </button>
-              </div>
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={toggleMobileMenu}
+                className="md:hidden p-2 rounded-md hover:bg-[#FECACA] transition-colors"
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? (
+                  <FaTimes size={20} />
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -145,7 +135,7 @@ const Navbar = () => {
               {item.text}
             </NavLink>
           ))}
-          {/* Mobile Resume Button */}
+
           <a
             href="/resume.pdf"
             download
@@ -158,7 +148,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Add padding to the top of your content to prevent navbar overlap */}
+      {/* Spacer to prevent content overlap */}
       <div className="pt-20"></div>
     </>
   );

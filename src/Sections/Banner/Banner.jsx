@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaFileDownload,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import img from "../../assets/aiease_1750841588683.jpg";
 import { Typewriter } from "react-simple-typewriter";
@@ -36,7 +32,7 @@ const Banner = () => {
 
   return (
     <section className="bg-white dark:bg-gray-900  py-20 px-4 sm:px-6 lg:px-8">
-      <div className=" flex flex-col max-w-7xl mx-auto  md:flex-row items-center justify-between gap-8 md:gap-32">
+      <div className=" flex flex-col max-w-7xl mx-auto   md:flex-row items-center justify-between gap-8 md:gap-32">
         {/* Left Side - Text Content */}
         <div className="md:w-1/2 space-y-6 order-2 md:order-1">
           <div className="mb-2">
@@ -93,7 +89,10 @@ const Banner = () => {
               Download Resume
             </button>
 
-            <Link to={"/projects"} className="px-6 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-md shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 dark:hover:bg-slate-800">
+            <Link
+              to={"/projects"}
+              className="px-6 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-md shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 dark:hover:bg-slate-800"
+            >
               View Projects
             </Link>
           </div>
@@ -132,7 +131,7 @@ const Banner = () => {
 
         {/* Right Side - Image with Dev Tools */}
         <div
-          className="md:w-1/2 relative order-1 md:order-2 mb-12 md:mb-0"
+          className="md:w-1/2  relative order-1 md:order-2 mb-12 md:mb-0"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

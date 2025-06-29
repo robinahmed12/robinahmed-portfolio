@@ -9,13 +9,18 @@ const Projects = () => {
       title: "Freelance Task Platform",
       description:
         "A platform connecting individuals with freelancers for small tasks. Users can post tasks, bid on projects, and connect based on skills, budget, and deadlines.",
+      features: [
+        "User authentication and role-based authorization",
+        "Task posting and bidding system",
+        "Real-time messaging between users",
+        "Payment integration for secure transactions"
+      ],
       tech: ["React", "Express", "MongoDB", "Tailwind CSS"],
       github: "https://github.com/robinahmed12/freelanzia-client-side",
       demo: "https://freelanzia-auth.web.app/",
       images: [
         "https://i.ibb.co/6cp8MF30/Screenshot-2025-06-29-004117.png",
         "https://i.ibb.co/mrNgTWZ5/Screenshot-2025-06-29-004045.png",
-
         "https://i.ibb.co/by9PB8h/Screenshot-2025-06-29-004133.png",
       ],
     },
@@ -24,13 +29,18 @@ const Projects = () => {
       title: "Lost & Found Platform",
       description:
         "A platform connecting people who lost items with those who found them. Users can report lost items, browse found items, and interact to recover belongings.",
+      features: [
+        "Geolocation-based item reporting",
+        "Image upload and recognition for item matching",
+        "Notification system for potential matches",
+        "User verification system for security"
+      ],
       tech: ["React", "Express", "MongoDB", "Tailwind CSS"],
       github: "https://github.com/robinahmed12/lostralink-client-side",
       demo: "https://lostralink-auth.web.app/",
       images: [
         "https://i.ibb.co/mVtCjHk0/Screenshot-2025-06-29-004750.png",
         "https://i.ibb.co/1tzhKwcP/Screenshot-2025-06-29-004719.png",
-
         "https://i.ibb.co/chH8mzX9/Screenshot-2025-06-29-004806.png",
       ],
     },
@@ -58,9 +68,9 @@ const Projects = () => {
     },
   };
 
-   useEffect(() => {
-      document.title = "Projects";
-    })
+  useEffect(() => {
+    document.title = "Projects";
+  });
 
   return (
     <section id="projects" className="py-20 bg-white">
@@ -109,6 +119,18 @@ const Projects = () => {
                   {project.description}
                 </p>
 
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {project.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <span className="text-[#DC2626] mr-2">•</span>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech, techIndex) => (
                     <motion.span
@@ -140,7 +162,7 @@ const Projects = () => {
               </div>
 
               {/* Image Gallery */}
-              <div  className="lg:w-1/2 relative h-55  lg:h-70 w-full">
+              <div className="lg:w-1/2 relative h-55 lg:h-70 w-full">
                 {project.images.map((img, imgIndex) => (
                   <motion.div
                     key={imgIndex}
