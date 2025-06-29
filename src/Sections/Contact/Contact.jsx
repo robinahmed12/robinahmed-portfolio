@@ -43,7 +43,7 @@ const Contact = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Side - Contact Info */}
-          <div className="w-full lg:w-1/2 space-y-6">
+          <div data-aos="zoom-out-right" className="w-full lg:w-1/2 space-y-6">
             <div className="bg-[#F8FAFC] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-[#DC2626]">
               <h3 className="text-xl font-semibold text-[#1E293B] mb-4">
                 Contact Information
@@ -57,10 +57,10 @@ const Contact = () => {
                   <div>
                     <h4 className="font-medium text-[#1E293B]">Phone</h4>
                     <a
-                      href="tel:+1234567890"
+                      href="01716900294"
                       className="text-[#64748B] hover:text-[#DC2626] transition-colors"
                     >
-                      +123 456 7890
+                      01716900294
                     </a>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="text-[#64748B] hover:text-[#DC2626] transition-colors"
                     >
-                      +123 456 7890
+                      01716900294
                     </a>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                       href="mailto:hello@robinahmed.com"
                       className="text-[#64748B] hover:text-[#DC2626] transition-colors"
                     >
-                      hello@robinahmed.com
+                      robinahmed2998@gmail.com
                     </a>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-[#1E293B]">Location</h4>
-                    <p className="text-[#64748B]">Dhaka, Bangladesh</p>
+                    <p className="text-[#64748B]">Cumilla, Bangladesh</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                 Availability
               </h3>
               <p className="text-[#1E293B]">
-                I'm currently available for freelance work and full-time
+                I'm currently available for work and full-time
                 positions. Feel free to reach out for collaborations or just to
                 say hello!
               </p>
@@ -122,7 +122,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="w-full lg:w-1/2">
+          <div data-aos="zoom-out-left" className="w-full lg:w-1/2">
             <form
               onSubmit={handleSubmit}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[#DC2626]"

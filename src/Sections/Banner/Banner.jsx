@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import {
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaFileDownload,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import img from "../../assets/aiease_1750841588683.jpg";
 import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router";
 
 const Banner = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,7 +36,7 @@ const Banner = () => {
 
   return (
     <section className="bg-white dark:bg-gray-900  py-20 px-4 sm:px-6 lg:px-8">
-      <div className=" flex flex-col max-w-7xl mx-auto md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div className=" flex flex-col max-w-7xl mx-auto  md:flex-row items-center justify-between gap-8 md:gap-32">
         {/* Left Side - Text Content */}
         <div className="md:w-1/2 space-y-6 order-2 md:order-1">
           <div className="mb-2">
@@ -92,15 +93,15 @@ const Banner = () => {
               Download Resume
             </button>
 
-            <button className="px-6 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-md shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 dark:hover:bg-slate-800">
+            <Link to={"/projects"} className="px-6 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-md shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 dark:hover:bg-slate-800">
               View Projects
-            </button>
+            </Link>
           </div>
 
           {/* Social Icons */}
           <div className="flex space-x-5 pt-4">
             <a
-              href="https://github.com"
+              href="https://github.com/robinahmed12"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-300"
@@ -109,7 +110,7 @@ const Banner = () => {
               <FaGithub className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/robinahmed12/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-300"
@@ -124,7 +125,7 @@ const Banner = () => {
               className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-300"
               aria-label="Twitter"
             >
-              <FaTwitter className="w-6 h-6" />
+              <FaXTwitter className="w-6 h-6" />
             </a>
           </div>
         </div>
@@ -135,8 +136,8 @@ const Banner = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Developer Image */}
-          <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-64 lg:h-64 mx-auto">
+          {/* Developer Image - Increased size with adjusted z-index */}
+          <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-80 lg:h-80 mx-auto">
             <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-red-600 shadow-2xl dark:border-red-500">
               <img
                 src={img}
@@ -146,8 +147,8 @@ const Banner = () => {
             </div>
           </div>
 
-          {/* Animated Dev Tools - Visible on all screen sizes */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {/* Animated Dev Tools - Adjusted container size and positioning */}
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
             {devTools.map((tool, index) => (
               <div
                 key={index}
@@ -155,10 +156,10 @@ const Banner = () => {
                   isHovered ? "opacity-100" : "opacity-90"
                 }`}
                 style={{
-                  width: `${60 + index * 15}px`,
-                  height: `${60 + index * 15}px`,
+                  width: `${70 + index * 15}px`, // Slightly increased size
+                  height: `${70 + index * 15}px`,
                   transform: `rotate(${index * 72}deg) translate(${
-                    isHovered ? "140px" : "120px"
+                    isHovered ? "180px" : "160px" // Increased translate distance
                   }) rotate(${-index * 72}deg)`,
                   zIndex: 5 - index,
                 }}

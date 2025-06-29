@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../../components/Container/Container";
 import { motion } from "framer-motion";
 import img from "../../assets/aiease_1750841588683.jpg"
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router";
 
 const About = () => {
+   useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -22,7 +31,7 @@ const About = () => {
 
   return (
     <section className="py-12 lg:py-16 bg-white">
-      <Container size="xl">
+      <Container>
         <motion.div
           initial="hidden"
           animate="visible"
@@ -30,7 +39,7 @@ const About = () => {
           className="flex flex-col lg:flex-row gap-12 items-center"
         >
           {/* Left Column - Image */}
-          <div className="w-full lg:w-1/3 flex justify-center">
+          <div data-aos="fade-right" className="w-full lg:w-1/3 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#DC2626] shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-[#FECACA] to-[#DC2626] opacity-20"></div>
               <div className="absolute inset-4 rounded-full border-2 border-white opacity-30"></div>
@@ -43,7 +52,7 @@ const About = () => {
           </div>
 
           {/* Right Column - Content */}
-          <div className="w-full lg:w-2/3">
+          <div data-aos="fade-left" className="w-full lg:w-2/3">
             <motion.h2
               variants={fadeIn}
               className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-6"
@@ -95,12 +104,12 @@ const About = () => {
 
             {/* CTA Button */}
             <motion.div variants={fadeIn} className="mt-10">
-              <a
-                href="/projects"
+              <Link to={"/projects"}
+                
                 className="inline-block px-8 py-3 bg-[#DC2626] text-white font-medium rounded-lg hover:bg-[#B91C1C] transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 View My Projects
-              </a>
+              </Link>
             </motion.div>
           </div>
         </motion.div>

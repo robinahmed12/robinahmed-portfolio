@@ -154,7 +154,9 @@ const Services = () => {
   };
 
   return (
-    <section className="py-16 bg-white" id="services">
+    <section data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000" className="py-16 bg-white" id="services">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: -20 }}

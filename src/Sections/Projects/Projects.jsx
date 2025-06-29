@@ -10,8 +10,8 @@ const Projects = () => {
       description:
         "A platform connecting individuals with freelancers for small tasks. Users can post tasks, bid on projects, and connect based on skills, budget, and deadlines.",
       tech: ["React", "Express", "MongoDB", "Tailwind CSS"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/robinahmed12/freelanzia-client-side",
+      demo: "https://freelanzia-auth.web.app/",
       images: [
         "https://i.ibb.co/6cp8MF30/Screenshot-2025-06-29-004117.png",
         "https://i.ibb.co/mrNgTWZ5/Screenshot-2025-06-29-004045.png",
@@ -25,8 +25,8 @@ const Projects = () => {
       description:
         "A platform connecting people who lost items with those who found them. Users can report lost items, browse found items, and interact to recover belongings.",
       tech: ["React", "Express", "MongoDB", "Tailwind CSS"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/robinahmed12/lostralink-client-side",
+      demo: "https://lostralink-auth.web.app/",
       images: [
         "https://i.ibb.co/mVtCjHk0/Screenshot-2025-06-29-004750.png",
         "https://i.ibb.co/1tzhKwcP/Screenshot-2025-06-29-004719.png",
@@ -93,7 +93,7 @@ const Projects = () => {
               } gap-12 items-center`}
             >
               {/* Content */}
-              <div
+              <div data-aos="fade-right"
                 className={`lg:w-1/2 ${
                   index % 2 === 0 ? "lg:pr-12" : "lg:pl-12"
                 }`}
@@ -136,7 +136,7 @@ const Projects = () => {
               </div>
 
               {/* Image Gallery */}
-              <div className="lg:w-1/2 relative h-55  lg:h-70 w-full">
+              <div data-aos="fade-left" className="lg:w-1/2 relative h-55  lg:h-70 w-full">
                 {project.images.map((img, imgIndex) => (
                   <motion.div
                     key={imgIndex}

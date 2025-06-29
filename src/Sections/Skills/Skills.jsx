@@ -56,7 +56,8 @@ const Skills = () => {
   };
 
   return (
-    <section className="py-12 bg-white">
+    <section data-aos="fade-up"
+     data-aos-duration="3000" className="py-12 bg-white">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

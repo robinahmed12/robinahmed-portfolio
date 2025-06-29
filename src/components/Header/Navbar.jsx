@@ -76,7 +76,7 @@ const Navbar = () => {
                   darkMode ? "text-[#F8FAFC]" : "text-[#1E293B]"
                 }`}
               >
-                <span className="text-[#DC2626]">Robin</span> Ahmed
+                <span className="text-[#DC2626] text-2xl">Robin</span> Ahmed
               </NavLink>
             </div>
 
