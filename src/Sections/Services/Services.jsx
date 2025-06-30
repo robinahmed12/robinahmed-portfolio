@@ -158,10 +158,9 @@ const Services = () => {
   });
 
   return (
-    <section 
-      data-aos="flip-left"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="2000" 
+    <section data-aos="flip-right"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"
       className="py-16 bg-white dark:bg-slate-900 transition-colors duration-300"
       id="services"
     >
@@ -202,7 +201,9 @@ const Services = () => {
               <h3 className="text-xl font-bold text-slate-800 dark:text-gray-50 mb-3">
                 {service.title}
               </h3>
-              <p className="text-slate-800 dark:text-gray-300">{service.description}</p>
+              <p className="text-slate-800 dark:text-gray-300">
+                {service.description}
+              </p>
               <div className="mt-6">
                 <button className="px-4 py-2 bg-slate-800 dark:bg-gray-50 text-white dark:text-slate-800 rounded-md hover:bg-red-600 dark:hover:bg-red-500 transition-colors duration-300">
                   Learn More

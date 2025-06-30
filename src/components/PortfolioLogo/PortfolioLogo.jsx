@@ -24,7 +24,7 @@ const PortfolioLogo = () => {
             Ahmed
           </span>
         </h1>
-        <div className="absolute -bottom-2 left-0 text-xs font-mono text-[#DC2626] dark:text-[#DC2626] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute -bottom-1 left-0 text-xs font-mono text-[#DC2626] dark:text-[#DC2626] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           Frontend Developer
         </div>
       </div>

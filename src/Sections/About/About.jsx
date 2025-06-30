@@ -7,13 +7,6 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  }, []);
-
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -30,19 +23,10 @@ const About = () => {
     { name: "MongoDB", icon: "🗄️" },
   ];
 
-  useEffect(() => {
-    document.title = "About";
-  });
-
   return (
     <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 transition-colors duration-300">
       <Container>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="flex flex-col lg:flex-row gap-12 items-center"
-        >
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Left Column - Image */}
           <div
             data-aos="fade-right"
@@ -61,66 +45,55 @@ const About = () => {
 
           {/* Right Column - Content */}
           <div data-aos="fade-left" className="w-full lg:w-2/3">
-            <motion.h2
-              variants={fadeIn}
-              className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-6"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-6">
               About <span className="text-red-600 dark:text-red-600">Me</span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              variants={fadeIn}
-              className="text-lg text-slate-800 dark:text-gray-50 mb-6 leading-relaxed"
-            >
+            <p className="text-lg text-slate-800 dark:text-gray-50 mb-6 leading-relaxed">
               I'm Robin Ahmed, a passionate Frontend Developer with strong
               skills in crafting responsive, user-friendly, and visually
               appealing web applications. With expertise in modern web
               technologies, I specialize in creating seamless digital
               experiences that combine aesthetic appeal with technical
               excellence.
-            </motion.p>
+            </p>
 
-            <motion.p
-              variants={fadeIn}
-              className="text-lg text-slate-800 dark:text-gray-50 mb-8 leading-relaxed"
-            >
+            <p className="text-lg text-slate-800 dark:text-gray-50 mb-8 leading-relaxed">
               My approach focuses on clean UI design, performance optimization,
               and maintainable code. Beyond frontend development, I also have
               hands-on experience with backend technologies, allowing me to
               understand and contribute to full-stack projects effectively.
-            </motion.p>
+            </p>
 
             {/* Skills Section */}
-            <motion.div variants={fadeIn}>
+            <div>
               <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-50 mb-4">
                 My Skills
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-pink-100 dark:bg-slate-800 text-slate-800 dark:text-gray-50 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all"
+                    className="px-4 py-2 bg-pink-100 dark:bg-slate-800 text-slate-800 dark:text-gray-50 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:scale-105 active:scale-95"
                   >
                     <span>{skill.icon}</span>
                     <span>{skill.name}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA Button */}
-            <motion.div variants={fadeIn} className="mt-10">
+            <div className="mt-10">
               <Link
                 to="/projects"
                 className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 View My Projects
               </Link>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

@@ -111,6 +111,7 @@ const Projects = () => {
             >
               {/* Content */}
               <div
+                data-aos="fade-right"
                 className={`lg:w-1/2 ${
                   index % 2 === 0 ? "lg:pr-12" : "lg:pl-12"
                 }`}
@@ -169,7 +170,10 @@ const Projects = () => {
               </div>
 
               {/* Image Gallery */}
-              <div className="lg:w-1/2 relative h-55 lg:h-70 w-full">
+              <div
+                data-aos="fade-left"
+                className="lg:w-1/2 relative h-55 lg:h-70 w-full"
+              >
                 {project.images.map((img, imgIndex) => (
                   <motion.div
                     key={imgIndex}
