@@ -7,10 +7,9 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
   const skills = [
     { name: "HTML5", icon: "🚀" },
@@ -22,15 +21,20 @@ const About = () => {
     { name: "Express.js", icon: "🚂" },
     { name: "MongoDB", icon: "🗄️" },
   ];
+  useEffect(() => {
+    document.title = "About";
+  });
 
   return (
     <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 transition-colors duration-300">
       <Container>
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Left Column - Image */}
-          <div
+          <motion.div
             data-aos="fade-right"
             className="w-full lg:w-1/3 flex justify-center"
+            initial="hidden"
+            animate="visible"
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-red-600 dark:border-red-600 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-red-600 opacity-20 dark:opacity-30"></div>
@@ -41,10 +45,15 @@ const About = () => {
                 className="w-full h-full object-cover relative z-10"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
-          <div data-aos="fade-left" className="w-full lg:w-2/3">
+          <motion.div
+            data-aos="fade-left"
+            className="w-full lg:w-2/3"
+            initial="hidden"
+            animate="visible"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-6">
               About <span className="text-red-600 dark:text-red-600">Me</span>
             </h2>
@@ -72,27 +81,30 @@ const About = () => {
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="px-4 py-2 bg-pink-100 dark:bg-slate-800 text-slate-800 dark:text-gray-50 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: 0.1 * index }} // Stagger effect
                   >
                     <span>{skill.icon}</span>
                     <span>{skill.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             {/* CTA Button */}
-            <div className="mt-10">
+            <motion.div className="mt-10" initial="hidden" animate="visible">
               <Link
                 to="/projects"
                 className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 View My Projects
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </Container>
     </section>
