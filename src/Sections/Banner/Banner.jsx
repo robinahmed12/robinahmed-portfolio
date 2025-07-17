@@ -167,7 +167,7 @@ const Banner = () => {
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/12m8HRwKFczoJz7PsryYhSBOkeyGVEkW1/view?usp=sharing"
               download
               className="group px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 dark:from-red-600 dark:to-red-700 dark:hover:from-red-500 dark:hover:to-red-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 relative overflow-hidden"
             >

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "title": "Medical Camp Management System",
+    "description": "A full-featured MERN stack web application that enables organizers to manage medical camps and participants to register, pay, and provide feedback. Includes secure authentication, dynamic dashboards, and real-time analytics.",
+    "features": [
+      "Role-based dashboard for organizers and participants with secure JWT authentication",
+      "Camp registration, Stripe payment integration, confirmation tracking, and feedback system",
+      "Responsive UI with searchable & paginated tables, charts using Recharts, and protected route management"
+    ],
+    "tech": [
+      "React",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "Firebase Auth",
+      "Stripe",
+      "Recharts"
+    ],
+    "github": "https://github.com/robinahmed12/medicamp-client-side",
+    "demo": "https://campcare-auth.web.app/",
+    "images": [
+      "https://i.ibb.co/jkCTXM7r/Screenshot-2025-07-17-164605.png",
+      "https://i.ibb.co/1YwFwLMs/Screenshot-2025-07-17-164644.png",
+      "https://i.ibb.co/bM2QSD0j/Screenshot-2025-07-17-164718.png"
+    ],
+    "category": "Full Stack",
+    "status": "Completed"
+  },
+  {
+    "id": 2,
+    "title": "Freelance Task Platform",
+    "description": "A comprehensive platform connecting individuals with freelancers for small tasks. Users can post tasks, bid on projects, and connect based on skills, budget, and deadlines.",
+    "features": [
+      "User authentication and role-based authorization",
+      "Optimized MongoDB queries (e.g., limit, sort, match by user email)",
+      "Task management (Create, Read, Update, Delete) with real-time deadline-based sorting"
+    ],
+    "tech": ["React", "Express", "MongoDB", "Tailwind CSS"],
+    "github": "https://github.com/robinahmed12/freelanzia-client-side",
+    "demo": "https://freelanzia-auth.web.app/",
+    "images": [
+      "https://i.ibb.co/JWD1gt0Q/Screenshot-2025-07-17-165927.png",
+      "https://i.ibb.co/Cp02fGkv/Screenshot-2025-07-17-165157.png",
+      "https://i.ibb.co/p63ymG5B/Screenshot-2025-07-17-165212.png"
+    ],
+    "category": "Full Stack",
+    "status": "Completed"
+  },
+  {
+    "id": 3,
+    "title": "Lost & Found Platform",
+    "description": "An innovative platform connecting people who lost items with those who found them. Users can report lost items, browse found items, and interact to recover belongings.",
+    "features": [
+      "Image upload and recognition for item matching",
+      "User authorization system for security",
+      "Real-time status updates and recovery tracking"
+    ],
+    "tech": ["React", "Express", "MongoDB", "Tailwind CSS"],
+    "github": "https://github.com/robinahmed12/lostralink-client-side",
+    "demo": "https://lostralink-auth.web.app/",
+    "images": [
+      "https://i.ibb.co/fLcYGMH/Screenshot-2025-07-17-165440.png",
+      "https://i.ibb.co/mVms8GRp/Screenshot-2025-07-17-165500.png",
+      "https://i.ibb.co/C5R9M1yJ/Screenshot-2025-07-17-165601.png"
+    ],
+    "category": "Full Stack",
+    "status": "Completed"
+  }
+]

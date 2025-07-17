@@ -12,6 +12,7 @@ import {
   Phone,
   Mail,
   MapPin,
+   FileText,
   Twitter,
 } from "lucide-react";
 import { FaArrowUp, FaHeart } from "react-icons/fa";
@@ -42,12 +43,12 @@ const Footer = () => {
       label: "LinkedIn",
       color: "hover:text-blue-400",
     },
-    {
-      icon: <Twitter />,
-      url: "https://twitter.com/yourusername",
-      label: "Twitter",
-      color: "hover:text-blue-300",
-    },
+     {
+    icon: <FileText />, 
+    url: "https://drive.google.com/file/d/12m8HRwKFczoJz7PsryYhSBOkeyGVEkW1/view?usp=sharing", 
+    label: "Resume",
+    color: "hover:text-green-400",
+  },
   ];
 
   const scrollToTop = () => {

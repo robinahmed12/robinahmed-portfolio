@@ -6,7 +6,7 @@ import Skills from "../Sections/Skills/Skills";
 import Projects from "../Sections/Projects/Projects";
 import Services from "../Sections/Services/Services";
 import Contact from "../Sections/Contact/Contact";
-
+import ProjectDetails from "../Sections/Projects/ProjectDetails";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/details/:id",
+        element: <ProjectDetails></ProjectDetails>,
       },
     ],
   },

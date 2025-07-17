@@ -117,7 +117,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-4">
               {/* Resume button */}
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/12m8HRwKFczoJz7PsryYhSBOkeyGVEkW1/view?usp=sharing"
                 download
                 className={`hidden sm:flex px-6 py-3 rounded-full text-sm font-semibold items-center transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 ${
                   isDarkMode

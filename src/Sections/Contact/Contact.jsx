@@ -19,7 +19,6 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
- 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -80,8 +79,6 @@ const Contact = () => {
     });
     setIsSubmitting(false);
   };
-
- 
 
   const contactItems = [
     {
@@ -310,20 +307,6 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Tech Stack Preview */}
-        <div
-          className="mt-16 text-center"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          <div className="inline-flex items-center space-x-2 bg-white dark:bg-slate-800 px-6 py-3 rounded-full shadow-lg border border-gray-200 dark:border-slate-700">
-            <FaCode className="text-red-600 dark:text-red-400" />
-            <span className="text-slate-600 dark:text-slate-300 font-medium">
-              Built with React & Tailwind CSS
-            </span>
           </div>
         </div>
       </div>

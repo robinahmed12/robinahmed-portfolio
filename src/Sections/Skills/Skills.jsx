@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiExpress } from "react-icons/si";
 import { Code, Lightbulb, Zap, Target } from "lucide-react";
+import { Link } from "react-router";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("frontend");
@@ -278,7 +279,7 @@ const Skills = () => {
           className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer group">
-            <span>Let's Build Something Amazing</span>
+            <Link to={"/contact"}>Let's Build Something Amazing</Link>
             <motion.div
               animate={{ x: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}

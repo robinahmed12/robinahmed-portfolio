@@ -10,7 +10,7 @@ const Layout = () => {
   const location = useLocation();
    useEffect(() => {
     Aos.init({
-      duration: 800,
+      duration: 600,
       once: true,
     });
   }, []);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  } from "react";
 import { motion } from "framer-motion";
 import { 
   FaCode, 
@@ -10,9 +10,11 @@ import {
   FaArrowRight,
   FaCheckCircle
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Services = () => {
   const [darkMode, setDarkMode] = useState(false);
+
 
   const services = [
     {
@@ -245,7 +247,7 @@ const Services = () => {
           className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-            <span className="font-semibold">Ready to Start Your Project?</span>
+            <Link to={"/contact"} className="font-semibold">Ready to Start Your Project?</Link>
             <FaArrowRight className="w-4 h-4" />
           </div>
         </motion.div>
