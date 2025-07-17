@@ -13,28 +13,20 @@ import {
 import { MdContactPhone } from "react-icons/md";
 import PortfolioLogo from "../PortfolioLogo/PortfolioLogo";
 import DarkModeBtn from "../DarkModeBtn/DarkModeBtn";
+import useTheme from "../../Context/theme";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const { darkMode: isDarkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
 
-    // Check for dark mode preference
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-    setIsDarkMode(darkModeMediaQuery.matches);
-
-    const handleDarkModeChange = (e) => setIsDarkMode(e.matches);
-    darkModeMediaQuery.addListener(handleDarkModeChange);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      darkModeMediaQuery.removeListener(handleDarkModeChange);
     };
   }, []);
 
@@ -64,81 +56,98 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "py-2 shadow-lg backdrop-blur-sm" : "py-4"
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          scrolled ? "py-3 shadow-2xl" : "py-4"
         } ${
           isDarkMode
-            ? "bg-slate-900/90 text-gray-50 border-b border-slate-800"
-            : "bg-white/90 text-slate-800 border-b border-gray-100"
+            ? "bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50"
+            : "bg-white border-b border-gray-200"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+            {/* Logo with glow effect */}
             <NavLink
               to="/"
-              className="flex items-center space-x-2"
+              className={`flex items-center space-x-2 p-2 rounded-xl transition-all duration-300 hover:scale-105 ${
+                isDarkMode
+                  ? "hover:bg-slate-800/50 hover:shadow-lg hover:shadow-red-500/20"
+                  : "hover:bg-red-50/80 hover:shadow-lg hover:shadow-red-500/20"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               <PortfolioLogo />
             </NavLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item) => (
+            <div className="hidden md:flex items-center space-x-2">
+              {navItems.map((item, index) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `px-4 py-2 rounded-lg text-sm font-medium flex items-center transition-all duration-200 ${
+                    `group relative px-5 py-3 rounded-full text-sm font-semibold flex items-center transition-all duration-300 overflow-hidden ${
                       isActive
-                        ? `bg-red-600 text-white shadow-md`
-                        : `${
-                            isDarkMode
-                              ? "hover:bg-slate-800 hover:text-gray-50"
-                              : "hover:bg-pink-100 hover:text-slate-800"
-                          }`
+                        ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30 scale-105"
+                        : isDarkMode
+                        ? "hover:bg-slate-800/60 hover:text-gray-100 hover:shadow-lg hover:shadow-slate-700/30"
+                        : "hover:bg-red-50/80 hover:text-slate-800 hover:shadow-lg hover:shadow-red-100/50"
                     }`
                   }
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <span className="mr-2">{item.icon}</span>
-                  {item.text}
+                  <span className="relative z-10 mr-2 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </span>
+                  <span className="relative z-10 tracking-wide">{item.text}</span>
+
+                  {/* Animated background */}
+                  <div
+                    className={`absolute inset-0 w-0 group-hover:w-full transition-all duration-300 ${
+                      isDarkMode
+                        ? "bg-gradient-to-r from-slate-800/50 to-slate-700/50"
+                        : "bg-gradient-to-r from-red-50/50 to-pink-50/50"
+                    } rounded-full`}
+                  ></div>
                 </NavLink>
               ))}
             </div>
 
             {/* Right side buttons */}
-            <div className="flex items-center space-x-3">
-              {/* Resume button (hidden on mobile) */}
+            <div className="flex items-center space-x-4">
+              {/* Resume button */}
               <a
                 href="/resume.pdf"
                 download
-                className={`hidden sm:flex px-4 py-2 rounded-lg text-sm font-medium items-center transition-all duration-300 ${
+                className={`hidden sm:flex px-6 py-3 rounded-full text-sm font-semibold items-center transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 ${
                   isDarkMode
-                    ? "bg-red-600 text-gray-50 hover:bg-red-700 shadow-md"
-                    : "bg-red-600 text-white hover:bg-red-700 shadow-md"
+                    ? "hover:from-red-600 hover:to-red-700"
+                    : "hover:from-red-600 hover:to-red-700"
                 }`}
               >
-                <FaFileDownload className="mr-2" />
-                Resume
+                <FaFileDownload className="mr-2 animate-pulse" />
+                <span className="tracking-wide">Resume</span>
               </a>
 
-              <DarkModeBtn
-                isDarkMode={isDarkMode}
-                setIsDarkMode={setIsDarkMode}
-              />
+              <DarkModeBtn />
 
               {/* Mobile Menu Toggle */}
               <button
                 onClick={toggleMobileMenu}
-                className={`md:hidden p-2 rounded-lg transition-colors ${
+                className={`md:hidden p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
                   isDarkMode
-                    ? "hover:bg-slate-800 text-gray-50"
-                    : "hover:bg-pink-100 text-slate-800"
+                    ? "hover:bg-slate-800/60 text-gray-100 hover:shadow-lg hover:shadow-slate-700/30"
+                    : "hover:bg-red-50/80 text-slate-800 hover:shadow-lg hover:shadow-red-100/50"
                 }`}
                 aria-label="Toggle Menu"
               >
-                {mobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                <div className="relative">
+                  {mobileMenuOpen ? (
+                    <FaTimes size={20} className="animate-spin" />
+                  ) : (
+                    <FaBars size={20} />
+                  )}
+                </div>
               </button>
             </div>
           </div>
@@ -147,55 +156,68 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed top-24 w-full z-40 md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          mobileMenuOpen ? "max-h-screen" : "max-h-0"
+        className={`fixed top-20 w-full z-40 md:hidden transition-all duration-500 ease-in-out overflow-hidden ${
+          mobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         } ${
           isDarkMode
-            ? "bg-slate-900 shadow-lg border-b border-slate-800"
-            : "bg-white/90 shadow-lg border-b border-gray-100"
+            ? "bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-slate-700/50"
+            : "bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-200/50"
         }`}
       >
-        <div className="px-2 pt-2 pb-4 bg-white dark:bg-slate-900 space-y-1 sm:px-3">
-          {navItems.map((item) => (
+        <div className="px-4 pt-4 pb-6 space-y-3">
+          {navItems.map((item, index) => (
             <NavLink
               key={item.to}
               to={item.to}
               onClick={toggleMobileMenu}
               className={({ isActive }) =>
-                `block px-4 py-3 rounded-lg text-base font-medium flex items-center mx-1 ${
+                `group flex items-center px-5 py-4 rounded-2xl text-base font-semibold transition-all duration-300 transform hover:scale-105 ${
                   isActive
-                    ? `bg-red-600 text-white shadow-md`
-                    : `${
-                        isDarkMode
-                          ? "hover:bg-slate-800 hover:text-gray-50"
-                          : "hover:bg-pink-100 hover:text-slate-800"
-                      }`
+                    ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30"
+                    : isDarkMode
+                    ? "hover:bg-slate-800/60 hover:text-gray-100 hover:shadow-lg hover:shadow-slate-700/30"
+                    : "hover:bg-red-50/80 hover:text-slate-800 hover:shadow-lg hover:shadow-red-100/50"
                 }`
               }
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <span className="mr-3">{item.icon}</span>
-              {item.text}
+              <span className="mr-4 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
+              </span>
+              <span className="tracking-wide">{item.text}</span>
+
+              {/* Animated line */}
+              <div
+                className={`ml-auto w-0 h-0.5 group-hover:w-6 transition-all duration-300 ${
+                  isDarkMode ? "bg-gray-300" : "bg-red-500"
+                } rounded-full`}
+              ></div>
             </NavLink>
           ))}
 
+          {/* Mobile Resume Button */}
           <a
             href="/resume.pdf"
             download
             onClick={toggleMobileMenu}
-            className={`block px-4 py-3 rounded-lg text-base font-medium flex items-center mx-1 ${
-              isDarkMode
-                ? "bg-red-600 text-gray-50 hover:bg-red-700 shadow-md"
-                : "bg-red-600 text-white hover:bg-red-700 shadow-md"
-            }`}
+            className="flex items-center px-5 py-4 rounded-2xl text-base font-semibold transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 mt-4"
           >
-            <FaFileDownload className="mr-3" />
-            Download Resume
+            <FaFileDownload className="mr-4 animate-pulse" />
+            <span className="tracking-wide">Download Resume</span>
           </a>
         </div>
       </div>
 
-      {/* Spacer to prevent content overlap */}
-      <div className="pt-20"></div>
+      {/* Spacer with gradient border */}
+      <div className="pt-20">
+        <div
+          className={`h-px bg-gradient-to-r ${
+            isDarkMode
+              ? "from-slate-800 via-red-500/20 to-slate-800"
+              : "from-gray-200 via-red-500/20 to-gray-200"
+          }`}
+        ></div>
+      </div>
     </>
   );
 };

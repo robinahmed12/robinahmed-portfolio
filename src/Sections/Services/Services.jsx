@@ -1,134 +1,73 @@
-import React, { useEffect } from "react";
-import Container from "../../components/Container/Container";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { 
+  FaCode, 
+  FaPaintBrush, 
+  FaMobile, 
+  FaRocket, 
+  FaServer, 
+  FaTools,
+  FaArrowRight,
+  FaCheckCircle
+} from "react-icons/fa";
 
 const Services = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
   const services = [
     {
       title: "Frontend Development",
       description:
-        "Crafting responsive, accessible, and performant user interfaces using React.js, Tailwind CSS, and modern JavaScript.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
+        "Crafting responsive, accessible, and performant user interfaces using React.js, Tailwind CSS, and modern JavaScript with pixel-perfect precision.",
+      icon: <FaCode className="h-8 w-8" />,
+      features: ["React.js", "Tailwind CSS", "JavaScript ES6+", "Redux"],
+      color: "from-blue-500 to-purple-600",
+      delay: 0.1
     },
     {
       title: "UI/UX Design",
       description:
-        "Creating intuitive user experiences with clean, modern designs that prioritize usability and aesthetic appeal.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-          />
-        </svg>
-      ),
+        "Creating intuitive user experiences with clean, modern designs that prioritize usability, accessibility, and aesthetic appeal.",
+      icon: <FaPaintBrush className="h-8 w-8" />,
+      features: ["Figma", "Responsive Design", "User Research", "Prototyping"],
+      color: "from-pink-500 to-red-600",
+      delay: 0.2
     },
     {
       title: "Responsive Web Apps",
       description:
-        "Building applications that work seamlessly across all devices, from mobile to desktop, with adaptive layouts.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-          />
-        </svg>
-      ),
+        "Building applications that work seamlessly across all devices, from mobile to desktop, with adaptive layouts and smooth performance.",
+      icon: <FaMobile className="h-8 w-8" />,
+      features: ["Mobile-First", "Cross-Browser", "PWA", "Accessibility"],
+      color: "from-green-500 to-teal-600",
+      delay: 0.3
     },
     {
       title: "Performance Optimization",
       description:
-        "Enhancing application speed and efficiency through code optimization and modern best practices.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      ),
+        "Enhancing application speed and efficiency through code optimization, lazy loading, and modern best practices.",
+      icon: <FaRocket className="h-8 w-8" />,
+      features: ["Code Splitting", "Lazy Loading", "SEO", "Core Web Vitals"],
+      color: "from-orange-500 to-yellow-600",
+      delay: 0.4
     },
     {
       title: "Full Stack Solutions",
       description:
-        "Developing complete web solutions with React frontends and Node.js/Express backends connected to MongoDB.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-          />
-        </svg>
-      ),
+        "Developing complete web solutions with React frontends and Node.js/Express backends connected to MongoDB for robust applications.",
+      icon: <FaServer className="h-8 w-8" />,
+      features: ["MERN Stack", "REST APIs", "Authentication", "Database Design"],
+      color: "from-indigo-500 to-blue-600",
+      delay: 0.5
     },
     {
       title: "Maintenance & Support",
       description:
-        "Providing ongoing support, updates, and maintenance for existing web applications.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+        "Providing ongoing support, updates, bug fixes, and maintenance for existing web applications with 24/7 availability.",
+      icon: <FaTools className="h-8 w-8" />,
+      features: ["Bug Fixes", "Updates", "Monitoring", "Support"],
+      color: "from-purple-500 to-pink-600",
+      delay: 0.6
     },
   ];
 
@@ -137,50 +76,99 @@ const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };
 
+  const floatingAnimation = {
+    y: [-5, 5, -5],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  };
+
   useEffect(() => {
-    document.title = "Services";
-  });
+    document.title = "Services - Robin Ahmed";
+    
+    // Check for dark mode preference
+    const isDark = document.documentElement.classList.contains('dark');
+    setDarkMode(isDark);
+    
+    // Listen for dark mode changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark');
+          setDarkMode(isDark);
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section data-aos="flip-right"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000"
-      className="py-16 bg-white dark:bg-slate-900 transition-colors duration-300"
+    <section 
+      className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden"
       id="services"
     >
-      <Container>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500 via-transparent to-blue-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-red-600 rounded-full blur-3xl opacity-10"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-blue-600 rounded-full blur-3xl opacity-10"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-gray-50 mb-4">
-            My Services
+          <motion.div
+            animate={floatingAnimation}
+            className="inline-block"
+          >
+            <span className="inline-block px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-4">
+              What I Offer
+            </span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-gray-50 mb-6">
+            My{" "}
+            <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+              Services
+            </span>
           </h2>
-          <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
-          <p className="text-slate-800 dark:text-gray-50 max-w-2xl mx-auto">
+          
+          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8 rounded-full"></div>
+          
+          <p className="text-lg text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             I offer comprehensive web development services to bring your digital
-            ideas to life with clean code and modern design.
+            ideas to life with clean code, modern design, and cutting-edge technology.
           </p>
         </motion.div>
 
+        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -192,27 +180,76 @@ const Services = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg border border-pink-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group"
+              whileHover={{ 
+                y: -10, 
+                transition: { duration: 0.3 }
+              }}
+              className="group relative bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-500 overflow-hidden"
             >
-              <div className="text-red-600 dark:text-red-500 mb-4 group-hover:text-slate-800 dark:group-hover:text-gray-50 transition-colors duration-300">
-                {service.icon}
+              {/* Gradient Background on Hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              
+              {/* Icon */}
+              <div className="relative z-10 mb-6">
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {service.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-gray-50 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-slate-800 dark:text-gray-300">
-                {service.description}
-              </p>
-              <div className="mt-6">
-                <button className="px-4 py-2 bg-slate-800 dark:bg-gray-50 text-white dark:text-slate-800 rounded-md hover:bg-red-600 dark:hover:bg-red-500 transition-colors duration-300">
-                  Learn More
-                </button>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-gray-50 mb-4 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                  {service.title}
+                </h3>
+                
+                <p className="text-slate-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-2 mb-6">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <FaCheckCircle className="text-green-500 w-4 h-4" />
+                      <span className="text-sm text-slate-600 dark:text-gray-400">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Action Button */}
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 dark:bg-gray-50 text-white dark:text-slate-800 rounded-lg hover:bg-red-600 dark:hover:bg-red-500 hover:text-white transition-all duration-300 group/btn"
+                >
+                  <span className="font-semibold">Learn More</span>
+                  <FaArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </motion.button>
               </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </motion.div>
-      </Container>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+            <span className="font-semibold">Ready to Start Your Project?</span>
+            <FaArrowRight className="w-4 h-4" />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
